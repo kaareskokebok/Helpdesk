@@ -7,10 +7,23 @@
 </head>
 <body>
     <h1>Hansens HelpDesk</h1>
-    <img src="images/helpdesk_pic.png" alt="HelpDesk">
+    <img src="images/helpdesk_pic.png" width="500px" alt="HelpDesk">
     <h2>Send skjemaet, få hjelp straks!</h2>
-    <form action="">
-        Skjema her.
+    <form action="/submit" method="post">
+        <select name="problemtype" id="" required>
+            <option value="">Velg problemtype...</option>
+            <option value="Nettverk">Nettverksproblemer</option>
+            <option value="Word">Problemer med Word</option>
+            <option value="Printer">Skriveproblemer</option>
+            <option value="Annet">Andre problemer</option>
+        </select>
+        <label for="inpNavn">Navn:</label>
+        <input type="text" name="navn" id="inpNavn" autocomplete="name">
+        <label for="inpEpost">Navn:</label>
+        <input type="email" name="epost" id="inpEpost" autocomplete="email">
+        <label for="inpBeskrivelse"></label>
+        <textarea name="beskrivelse" id="inpBeskrivelse" cols="30" rows="10">Masse problemer her...</textarea>
+        <input type="submit" value="Send problemet">
     </form>
 </body>
 </html>

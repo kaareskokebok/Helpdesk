@@ -20,6 +20,11 @@ app.get("/", (req, res) => {
     // Vise fram index.ejs ved localhost:3000/
     res.render("index.ejs");
 });
+{/* <form action="/submit" method="post"></form> */}
+
+app.post("/submit", (req, res) => {
+    console.log(req.body);
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
