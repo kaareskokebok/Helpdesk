@@ -1,0 +1,111 @@
+:root {
+    /* CSS variables for easy theme changes */
+    --primary-color: #4CAF50;
+    --border-color: #ccc;
+    --background-light: #f2f2f2;
+    --font-base: Arial, sans-serif;
+    --transition-speed: 0.3s;
+  }
+  
+  body {
+    font-family: var(--font-base);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: #333; /* Improved text readability */
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin: 0;
+  }
+  
+  h1 {
+    padding: 20px 0;
+    font-size: 2.5em; /* Slightly larger for better hierarchy */
+  }
+  
+  h2 {
+    padding: 15px 0;
+    font-size: 2em; /* Increased for consistent design */
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    height: auto; /* Ensure aspect ratio is maintained */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%; /* Better responsiveness */
+    max-width: 600px; /* Maximum width to maintain form readability */
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's width */
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  select:focus,
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: var(--primary-color); /* Focus state for accessibility */
+    outline: none;
+  }
+  
+  input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    margin-top: 10px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #369636; /* Darker shade of green on hover */
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-light);
+    margin-top: 20px;
+    border-top: 1px solid #ddd; /* Subtle separation from content */
+  }
+  
+  @media (max-width: 768px) {
+    form {
+      width: 100%; /* Full-width on smaller screens */
+    }
+  }
+  

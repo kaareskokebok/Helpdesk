@@ -1,0 +1,17 @@
+<%- include("./partials/header.ejs") %>
+
+<!-- Bruk ejs til å sjekke om admin er innlogget
+Hvis ikke, vis form -->
+<form action="/admin" method="post">
+    <h2>Ansattportal</h2>
+    <label for="inpId">Ansatt-ID</label>
+    <input type="text" name="ansattId" id="inpId">
+    <label for="inpPassord">Passord</label>
+    <input type="text" name="ansattPassord" id="inpPassord">
+    <input type="submit" value="Logg inn">
+</form>
+
+<!-- Hvis admin er innlogget, vis tickets -->
+
+
+<%- include("./partials/footer.ejs") %>
