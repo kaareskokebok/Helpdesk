@@ -45,6 +45,13 @@ app.post("/submit", (req, res) => {
     // 1. Brukeren vises siden submit.ejs, med en kvittering.
     // 2. Brukerens ticket lagres i ticketsdata.txt
     skrivTilFil(req.body);
+    let ticketnr = 10003;
+    let data = {
+        navn: req.body.navn,
+        epost: req.body.epost,
+        ticketnr  // Samme som ticketnr:ticketnr
+    }
+    res.render("submit.ejs", data);
 });
 
 app.listen(port, () => {
