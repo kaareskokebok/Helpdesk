@@ -8,6 +8,8 @@ dotenv.config();
 // Hvis 2faktor, gå i gmail -> settings -> app password
 // const email = process.env.MY_EMAIL;
 // const appPass = process.env.APP_PASS;
+const email = process.env.MY_EMAIL;
+const appPass = process.env.APP_PASS;
 
 const app = express();
 const port = 3000;
