@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
+import fs from "fs";
 // Laster inn variabler fra .env filen
 dotenv.config();
 
@@ -24,8 +25,26 @@ app.get("/", (req, res) => {
 });
 {/* <form action="/submit" method="post"></form> */}
 
+function skrivTilFil(data) {
+    let ticketnr = 10002;  // Må leses fra fil (TODO)
+    let dataPath = "./data/ticketsdata.txt";
+    // Trenger modulen fs
+    let nyLinje = `\n${ticketnr},${data.navn},${data.epost},${data.problemtype},${data.beskrivelse}`;
+
+    // Skriv ny linje til fil
+    fs.appendFile(dataPath, nyLinje, (err) => {
+        if(err) {
+            console.error("Failed to append data to file:", err);
+        }else{
+            console.log("Data added successfully!");
+        }
+    })
+}
 app.post("/submit", (req, res) => {
     console.log(req.body);
+    // 1. Brukeren vises siden submit.ejs, med en kvittering.
+    // 2. Brukerens ticket lagres i ticketsdata.txt
+    skrivTilFil(req.body);
 });
 
 app.listen(port, () => {
