@@ -40,12 +40,26 @@ function skrivTilFil(data) {
         }
     })
 }
+function getTicketNr() {
+    // Lese siste ticketnr fra nederste linje i fila, og returnerer dette. Hvis
+    // ingen registrerte tickets, returner 10001
+    let dataPath = "./data/ticketsdata.txt";
+    fs.readFile(dataPath, 'utf8', (err, data) => {
+        if(err) {
+            console.error("Feil ved lesning av fil:", err);
+            return;  // Avslutt funksjonen getTicketNr
+        }
+        // Fillesning gikk bra
+        console.log(data);
+    })
+    return 10001;
+}
 app.post("/submit", (req, res) => {
     console.log(req.body);
     // 1. Brukeren vises siden submit.ejs, med en kvittering.
     // 2. Brukerens ticket lagres i ticketsdata.txt
     skrivTilFil(req.body);
-    let ticketnr = 10003;
+    let ticketnr = getTicketNr();
     let data = {
         navn: req.body.navn,
         epost: req.body.epost,
