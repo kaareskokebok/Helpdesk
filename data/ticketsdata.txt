@@ -2,3 +2,4 @@ ticketnr,navn,epost,problemtype,beskrivelse
 10001,"Kaare Erlend Jørgensen",kej83@pm.me,Word,"Masse problemer her..."
 10002,"Kaare Erlend Jørgensen",kej83@pm.me,Word,"Masse problemer her..."
 10003,"Kaare Erlend Jørgensen",kej83@pm.me,Word,"Masse problemer her..."
+10004,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,pls

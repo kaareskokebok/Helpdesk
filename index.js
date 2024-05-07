@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
-import fs from "fs";
+import fs from "fs/promises";
+
 // Laster inn variabler fra .env filen
 dotenv.config();
 
@@ -25,68 +26,52 @@ app.get("/", (req, res) => {
 });
 {/* <form action="/submit" method="post"></form> */}
 
-function skrivTilFil(data) {
-    // let ticketnr = 10002;  // Må leses fra fil (TODO)
+async function getTicketNr() {
     let dataPath = "./data/ticketsdata.txt";
-    // Trenger modulen fs
-    let nyLinje = `\n${data.ticketnr},${data.navn},${data.epost},${data.problemtype},${data.beskrivelse}`;
-
-    // Skriv ny linje til fil
-    fs.appendFile(dataPath, nyLinje, (err) => {
-        if(err) {
-            console.error("Failed to append data to file:", err);
-        }else{
-            console.log("Data added successfully!");
+    try {
+        const data = await fs.readFile(dataPath, 'utf8');
+        const lines = data.trim().split("\n");
+        if (lines.length === 0) {
+            return 10001;  // If no tickets are registered, start from 10001
         }
-    })
-}
-function getTicketNr() {
-    // Lese siste ticketnr fra nederste linje i fila, og returnerer dette. Hvis
-    // ingen registrerte tickets, returner 10001
-    let dataPath = "./data/ticketsdata.txt";
-    fs.readFile(dataPath, 'utf8', (err, data) => {
-        if(err) {
-            console.error("Feil ved lesning av fil:", err);
-            return;  // Avslutt funksjonen getTicketNr
-        }
-        // Fillesning gikk bra
-        // console.log(data);
-        // console.log("Med trim()");
-        console.log(data.trim());
-        let txtFilen = data.trim();
-        // Deler opp i et array, der hvert element er en linje i txt-filen
-        let linjer = txtFilen.split("\n");
-        console.log(linjer);
-        let firstLine = linjer[0];
-        let firstLetter = linjer[0][0];  // t
-        let arrayWords = firstLine.split(",");
-        let firstWord = arrayWords[0];
-        console.log(firstWord);
-        
-        // ticketnr på siste rad
-        let lastLine = linjer[linjer.length - 1];
-        let lastLineWords = lastLine.split(",");
-        let lastLineTicketnr = lastLineWords[0];
-        console.log(lastLineTicketnr);
-        return lastLineTicketnr + 1;
-    })
-    return 10001;
-}
-app.post("/submit", (req, res) => {
-    console.log(req.body);
-    // 1. Brukeren vises siden submit.ejs, med en kvittering.
-    // 2. Brukerens ticket lagres i ticketsdata.txt
-    
-    let ticketnr = getTicketNr();
-    let data = {
-        navn: req.body.navn,
-        epost: req.body.epost,
-        beskrivelse: req.body.beskrivelse,
-        problemtype: req.body.problemtype,
-        ticketnr  // Samme som ticketnr:ticketnr
+        const lastLine = lines[lines.length - 1];
+        const lastLineWords = lastLine.split(",");
+        const lastLineTicketnr = Number(lastLineWords[0]);
+        return lastLineTicketnr + 1;  // Return the next ticket number
+    } catch (err) {
+        console.error("Error reading file:", err);
+        return 10001;  // Return default ticket number in case of an error
     }
-    skrivTilFil(data);
-    res.render("submit.ejs", data);
+}
+
+async function skrivTilFil(data) {
+    let dataPath = "./data/ticketsdata.txt";
+    let nyLinje = `\n${data.ticketnr},${data.navn},${data.epost},${data.problemtype},${data.beskrivelse}`;
+    try {
+        await fs.appendFile(dataPath, nyLinje);
+        console.log("Data added successfully!");
+    } catch (err) {
+        console.error("Failed to append data to file:", err);
+    }
+}
+
+app.post("/submit", async (req, res) => {
+    console.log(req.body);
+    try {
+        let ticketnr = await getTicketNr();
+        let data = {
+            navn: req.body.navn,
+            epost: req.body.epost,
+            beskrivelse: req.body.beskrivelse,
+            problemtype: req.body.problemtype,
+            ticketnr
+        };
+        await skrivTilFil(data);
+        res.render("submit.ejs", data);
+    } catch (error) {
+        console.error("Failed to process form submission:", error);
+        res.status(500).send("An error occurred while processing your request.");
+    }
 });
 
 app.listen(port, () => {
