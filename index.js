@@ -10,8 +10,12 @@ dotenv.config();
 // Hvis 2faktor, gå i gmail -> settings -> app password
 // const email = process.env.MY_EMAIL;
 // const appPass = process.env.APP_PASS;
+// ADMIN_USER=jensern
+// ADMIN_PASS=gensern
 const email = process.env.MY_EMAIL;
 const appPass = process.env.APP_PASS;
+const adminUser = process.env.ADMIN_USER;
+const adminPass = process.env.ADMIN_PASS;
 
 const app = express();
 const port = 3000;
@@ -34,7 +38,13 @@ app.get("/admin", (req, res) => {
 
 app.post("/adminsubmit", async (req, res) => {
     console.log(req.body);
-    res.render("admin.ejs", {innlogget: true, tickets: [10002, 10003]});
+    // Sjekk logg inn
+    if(req.body.adminuser === adminUser && req.body.adminpassword === adminPass){
+        res.render("admin.ejs", {innlogget: true, tickets: [10002, 10003]});
+    }else{
+        res.render("admin.ejs", {feilmelding: "Feil brukernavn og/eller passord."});
+    }
+    
 });
 /* <form action="/submit" method="post"></form> */
 

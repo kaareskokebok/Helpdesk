@@ -13,7 +13,10 @@
         <input type="password" name="adminpassword" id="inpPass"><br>
         <input type="submit" value="Logg inn">
     </form>
-    <% } else { %>
+
+    <% } if(locals.feilmelding) { %>
+        <p>Feilmelding: <%= feilmelding  %></p>
+    <% } if(locals.innlogget) { %>
 
         <!-- Her vises tickets, dersom brukeren er logget inn -->
         <h3>Tickets:</h3>
