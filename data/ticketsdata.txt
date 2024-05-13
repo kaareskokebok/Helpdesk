@@ -1,1 +1,3 @@
 ticketnr,navn,epost,problemtype,beskrivelse
+10001,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,asdfasdfasdfasdf
+10002,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,asdfasdfasdfasdf

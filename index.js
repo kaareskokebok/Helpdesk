@@ -34,6 +34,7 @@ async function getTicketNr() {
         if (lines.length <= 1) {
             return 10001;  // If no tickets are registered, start from 10001
         }
+        // Minst 1 ticket.
         const lastLine = lines[lines.length - 1];
         const lastLineWords = lastLine.split(",");
         const lastLineTicketnr = Number(lastLineWords[0]);

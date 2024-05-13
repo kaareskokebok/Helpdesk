@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. Lag innlogging med brukernavn og passord.  -->
+    <h1>Ansattside</h1>
+    
+    <h2>Logg inn for å se tickets.</h2>
+
+    <form action="/adminsubmit" method="post">
+        <label for="inpUser">Brukernavn:</label><br>
+        <input type="text" name="adminuser" id="inpUser"><br>
+        <label for="inpPass">Passord:</label><br>
+        <input type="password" name="adminpassword" id="inpPass"><br>
+        <input type="submit" value="Logg inn">
+    </form>
+    <!-- 2. Skjema her, avslutt med submit knapp
+    3. På server side: Man kommer hit ved å skrive localhost:3000/admin .
+        Dette må dere fikse i index.js.
+    4. Legg inn adminbruker med passord inni .env, og lag variabler i index.js.
+    5. Kjør brukersjekk på serverside (i index.js), hvis ok, vis fram alle tickets i liste eller tabell.
+    6. Server-side kjører res.render("admin.ejs", loginStatus), der loginStatus brukernavn på admin og om brukeren er pålogget. 
+    -->
+</body>
+</html>
