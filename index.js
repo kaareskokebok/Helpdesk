@@ -24,7 +24,19 @@ app.get("/", (req, res) => {
     // Vise fram index.ejs ved localhost:3000/
     res.render("index.ejs");
 });
-{/* <form action="/submit" method="post"></form> */}
+
+// localhost:3000/admin
+app.get("/admin", (req, res) => {
+    // Vise fram index.ejs ved localhost:3000/
+    res.render("admin.ejs");  // Ikke logget inn
+    // res.render("admin.ejs", {innlogget:true});
+});
+
+app.post("/adminsubmit", async (req, res) => {
+    console.log(req.body);
+    res.render("admin.ejs", {innlogget: true, tickets: [10002, 10003]});
+});
+/* <form action="/submit" method="post"></form> */
 
 async function getTicketNr() {
     let dataPath = "./data/ticketsdata.txt";

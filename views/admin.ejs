@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include("partials/header.ejs") %>
     <!-- 1. Lag innlogging med brukernavn og passord.  -->
-    <h1>Ansattside</h1>
+    <h2>Ansattside</h2>
     
-    <h2>Logg inn for å se tickets.</h2>
+    <!-- Sjekk om variabelen finnes -->
+    <% if (!locals.innlogget) { %>
+    <h3>Logg inn for å se tickets.</h3>
 
     <form action="/adminsubmit" method="post">
         <label for="inpUser">Brukernavn:</label><br>
@@ -18,6 +13,18 @@
         <input type="password" name="adminpassword" id="inpPass"><br>
         <input type="submit" value="Logg inn">
     </form>
+    <% } else { %>
+
+        <!-- Her vises tickets, dersom brukeren er logget inn -->
+        <h3>Tickets:</h3>
+
+        <ul>
+            <% tickets.forEach(ticket => { %>
+                <li><%= ticket %></li>
+            <% }); %>   
+        </ul>
+    
+        <% } %>
     <!-- 2. Skjema her, avslutt med submit knapp
     3. På server side: Man kommer hit ved å skrive localhost:3000/admin .
         Dette må dere fikse i index.js.
