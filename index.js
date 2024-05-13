@@ -31,7 +31,7 @@ async function getTicketNr() {
     try {
         const data = await fs.readFile(dataPath, 'utf8');
         const lines = data.trim().split("\n");
-        if (lines.length === 0) {
+        if (lines.length <= 1) {
             return 10001;  // If no tickets are registered, start from 10001
         }
         const lastLine = lines[lines.length - 1];
