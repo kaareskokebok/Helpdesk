@@ -36,11 +36,30 @@ app.get("/admin", (req, res) => {
     // res.render("admin.ejs", {innlogget:true});
 });
 
+async function getDataFromFile(){
+    let dataPath = "./data/ticketsdata.txt";
+    try {
+        const data = await fs.readFile(dataPath, 'utf8');
+        const lines = data.trim().split("\n");
+        if (lines.length <= 1) {
+            return null;
+        }
+        lines.splice(0, 1);  // Sletter først linja med overskrifter
+        return lines;
+       
+    } catch (err) {
+        console.error("Error reading file:", err);
+        return null;  // Return null if feil med lesning av fil
+    }
+}
+
 app.post("/adminsubmit", async (req, res) => {
     console.log(req.body);
     // Sjekk logg inn
     if(req.body.adminuser === adminUser && req.body.adminpassword === adminPass){
-        res.render("admin.ejs", {innlogget: true, tickets: [10002, 10003]});
+        // Les data fra filen
+        let data = await getDataFromFile();
+        res.render("admin.ejs", {innlogget: true, tickets: data});
     }else{
         res.render("admin.ejs", {feilmelding: "Feil brukernavn og/eller passord."});
     }

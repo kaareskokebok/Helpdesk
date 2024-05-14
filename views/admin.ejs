@@ -21,12 +21,27 @@
         <!-- Her vises tickets, dersom brukeren er logget inn -->
         <h3>Tickets:</h3>
 
-        <ul>
-            <% tickets.forEach(ticket => { %>
-                <li><%= ticket %></li>
+        <table>
+            <thead>
+                <tr>
+                    <!-- ticketnr,navn,epost,problemtype,beskrivelse -->
+                    <th>Ticketnr</th>
+                    <th>Navn</th>
+                    <th>E-post</th>
+                    <th>Problemtype</th>
+                    <th>Beskrivelse</th>
+                </tr>
+            </thead>
+            <tbody>
+           
+            <% tickets.forEach(ticket => { %> <!-- En ny rad for hver ticket -->
+                <tr> 
+                <%= ticket %>
+                </tr>
             <% }); %>   
-        </ul>
-    
+        
+    </tbody>
+    </table>
         <% } %>
     <!-- 2. Skjema her, avslutt med submit knapp
     3. På server side: Man kommer hit ved å skrive localhost:3000/admin .
