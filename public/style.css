@@ -67,3 +67,51 @@ body {
     }
   }
   
+  /* Style for the entire table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the table header */
+table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Style for table cells */
+table th, table td {
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
+}
+
+/* Style for table rows */
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* Style for alternating row colors */
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+/* Style for table row hover effect */
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Style for the last row */
+table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* Optional: Adding some extra style to make the text bold */
+table tbody tr td:first-of-type {
+  font-weight: bold;
+}
