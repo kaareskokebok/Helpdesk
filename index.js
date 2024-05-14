@@ -42,6 +42,7 @@ app.post("/ferdig", async (req, res) => {
     let ticketnr = req.body.ticketnr
     console.log("Klar for å fjerne " + ticketnr + " fra txt-filen.");
     // TODO: Finn ut hvordan du sletter linja fra filen med akkurat dette ticketnr.
+    
 });
 
 async function getDataFromFile(){
