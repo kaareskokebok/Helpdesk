@@ -36,7 +36,9 @@
            
             <% tickets.forEach(ticket => { %> <!-- En ny rad for hver ticket -->
                 <tr> 
-                <%= ticket %>
+                   <% ticket.split(",").forEach(ticketdata => { %> <!-- En ticketdata for hver celle-->
+                <td><%= ticketdata %></td>
+                <% }); %>
                 </tr>
             <% }); %>   
         
