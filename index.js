@@ -36,6 +36,14 @@ app.get("/admin", (req, res) => {
     // res.render("admin.ejs", {innlogget:true});
 });
 
+// Når en ticket er ferdigløst av ansatt/admin
+app.post("/ferdig", async (req, res) => {  
+    console.log(req.body);
+    let ticketnr = req.body.ticketnr
+    console.log("Klar for å fjerne " + ticketnr + " fra txt-filen.");
+    // TODO: Finn ut hvordan du sletter linja fra filen med akkurat dette ticketnr.
+});
+
 async function getDataFromFile(){
     let dataPath = "./data/ticketsdata.txt";
     try {
