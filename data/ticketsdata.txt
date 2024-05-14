@@ -1,3 +1,37 @@
 ticketnr,navn,epost,problemtype,beskrivelse
-10001,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,asdfasdfasdfasdf
-10002,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,asdfasdfasdfasdf
+10001,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,Kommer ikke på nett
+10002,Kaare Erlend Jørgensen,kej83@pm.me,Nettverk,Kabelen funker ikke
+10003,Anna Svensson,anna.svensson@example.com,Programvare,Kan ikke installere programmet
+10004,Lars Hansen,lars.hansen@example.com,Maskinvare,Skjermen er svart
+10005,Emma Olsen,emma.olsen@example.com,Nettverk,Internettforbindelsen er ustabil
+10006,Marius Kristoffersen,marius.k@example.com,Programvare,Applikasjonen krasjer ved oppstart
+10007,Sara Andersen,sara.andersen@example.com,Maskinvare,Tastaturet virker ikke
+10008,Erik Nilsen,erik.n@example.com,Nettverk,WiFi-signalet er svakt
+10009,Nina Berg,nina.berg@example.com,Programvare,Får feilmelding ved lagring av fil
+10010,Olav Johansen,olav.j@example.com,Maskinvare,Musen fungerer ikke
+10011,Elin Pedersen,elin.p@example.com,Nettverk,Kan ikke koble til VPN
+10012,Jens Pettersen,jens.p@example.com,Programvare,Kan ikke åpne dokumenter
+10013,Hege Larsen,hege.l@example.com,Maskinvare,Laptoppen overopphetes
+10014,Ola Nordmann,ola.nordmann@example.com,Nettverk,Ingen internettforbindelse
+10015,Kari Nilsen,kari.n@example.com,Programvare,Utdatert programvare
+10016,Thomas Johannessen,thomas.j@example.com,Maskinvare,Lader ikke batteriet
+10017,Lise Hansen,lise.hansen@example.com,Nettverk,Kan ikke koble til trådløst nettverk
+10018,Per Olsen,per.olsen@example.com,Programvare,Programmet svarer ikke
+10019,Hilde Martinsen,hilde.m@example.com,Maskinvare,Harddisken lager lyd
+10020,Morten Karlsen,morten.k@example.com,Nettverk,Sakner tilgang til spesifikk nettside
+10021,Eva Kristiansen,eva.k@example.com,Programvare,Programvareoppdatering feilet
+10022,Håkon Lund,hakon.l@example.com,Maskinvare,PCen slår seg av plutselig
+10023,Kirsten Mathisen,kirsten.m@example.com,Nettverk,VPN-tilkobling er treg
+10024,Stian Bakke,stian.b@example.com,Programvare,Kan ikke skrive ut fra programmet
+10025,Marit Andersen,marit.a@example.com,Maskinvare,CD-ROM-stasjonen fungerer ikke
+10026,Fredrik Solberg,fredrik.s@example.com,Nettverk,WiFi passord fungerer ikke
+10027,Ingrid Moe,ingrid.m@example.com,Programvare,Kan ikke oppdatere applikasjonen
+10028,Bjørn Rønning,bjorn.r@example.com,Maskinvare,USB-porten virker ikke
+10029,Monica Haugen,monica.h@example.com,Nettverk,Internett går tregt
+10030,Kenneth Lie,kenneth.l@example.com,Programvare,Feil ved oppstart av systemet
+10031,Ida Hansen,ida.hansen@example.com,Maskinvare,Batteriet varer ikke lenge
+10032,Svein Johansen,svein.j@example.com,Nettverk,Tilkobling avbrytes ofte
+10033,Gro Pedersen,gro.p@example.com,Programvare,Problem med lisensiering
+10034,Eirik Karlsen,eirik.k@example.com,Maskinvare,Høyttalerne fungerer ikke
+10035,Kristin Olsen,kristin.o@example.com,Nettverk,IP-konflikt på nettverket
+10036,Jonas Kristoffersen,jonas.k@example.com,Programvare,Programmet fryser under bruk
