@@ -2,16 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import fs from "fs/promises";
+import { slettLinje, getDataFromFile, adminSubmit } from "./admin.js";  // Import admin functions
 
 // Laster inn variabler fra .env filen
 dotenv.config();
 
 // Environment variables fra .env
-// Hvis 2faktor, gå i gmail -> settings -> app password
-// const email = process.env.MY_EMAIL;
-// const appPass = process.env.APP_PASS;
-// ADMIN_USER=jensern
-// ADMIN_PASS=gensern
 const email = process.env.MY_EMAIL;
 const appPass = process.env.APP_PASS;
 const adminUser = process.env.ADMIN_USER;
@@ -39,42 +35,17 @@ app.get("/admin", (req, res) => {
 // Når en ticket er ferdigløst av ansatt/admin
 app.post("/ferdig", async (req, res) => {  
     console.log(req.body);
-    let ticketnr = req.body.ticketnr
+    let ticketnr = req.body.ticketnr;
     console.log("Klar for å fjerne " + ticketnr + " fra txt-filen.");
-    // TODO: Finn ut hvordan du sletter linja fra filen med akkurat dette ticketnr.
-    
+    let success = await slettLinje(ticketnr);
+    let data = await getDataFromFile();
+    res.render("admin.ejs", {success, innlogget: true, tickets: data});
 });
 
-async function getDataFromFile(){
-    let dataPath = "./data/ticketsdata.txt";
-    try {
-        const data = await fs.readFile(dataPath, 'utf8');
-        const lines = data.trim().split("\n");
-        if (lines.length <= 1) {
-            return null;
-        }
-        lines.splice(0, 1);  // Sletter først linja med overskrifter
-        return lines;
-       
-    } catch (err) {
-        console.error("Error reading file:", err);
-        return null;  // Return null if feil med lesning av fil
-    }
-}
-
-app.post("/adminsubmit", async (req, res) => {
-    console.log(req.body);
-    // Sjekk logg inn
-    if(req.body.adminuser === adminUser && req.body.adminpassword === adminPass){
-        // Les data fra filen
-        let data = await getDataFromFile();
-        res.render("admin.ejs", {innlogget: true, tickets: data});
-    }else{
-        res.render("admin.ejs", {feilmelding: "Feil brukernavn og/eller passord."});
-    }
-    
+// Use the imported adminSubmit function for the /adminsubmit route
+app.post("/adminsubmit", (req, res) => {
+    adminSubmit(req, res, adminUser, adminPass);
 });
-/* <form action="/submit" method="post"></form> */
 
 async function getTicketNr() {
     let dataPath = "./data/ticketsdata.txt";

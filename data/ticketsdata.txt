@@ -10,7 +10,6 @@ ticketnr,navn,epost,problemtype,beskrivelse
 10009,Nina Berg,nina.berg@example.com,Programvare,Får feilmelding ved lagring av fil
 10010,Olav Johansen,olav.j@example.com,Maskinvare,Musen fungerer ikke
 10011,Elin Pedersen,elin.p@example.com,Nettverk,Kan ikke koble til VPN
-10012,Jens Pettersen,jens.p@example.com,Programvare,Kan ikke åpne dokumenter
 10013,Hege Larsen,hege.l@example.com,Maskinvare,Laptoppen overopphetes
 10014,Ola Nordmann,ola.nordmann@example.com,Nettverk,Ingen internettforbindelse
 10015,Kari Nilsen,kari.n@example.com,Programvare,Utdatert programvare
@@ -29,9 +28,6 @@ ticketnr,navn,epost,problemtype,beskrivelse
 10028,Bjørn Rønning,bjorn.r@example.com,Maskinvare,USB-porten virker ikke
 10029,Monica Haugen,monica.h@example.com,Nettverk,Internett går tregt
 10030,Kenneth Lie,kenneth.l@example.com,Programvare,Feil ved oppstart av systemet
-10031,Ida Hansen,ida.hansen@example.com,Maskinvare,Batteriet varer ikke lenge
 10032,Svein Johansen,svein.j@example.com,Nettverk,Tilkobling avbrytes ofte
-10033,Gro Pedersen,gro.p@example.com,Programvare,Problem med lisensiering
-10034,Eirik Karlsen,eirik.k@example.com,Maskinvare,Høyttalerne fungerer ikke
 10035,Kristin Olsen,kristin.o@example.com,Nettverk,IP-konflikt på nettverket
-10036,Jonas Kristoffersen,jonas.k@example.com,Programvare,Programmet fryser under bruk
+10036,Kaare Erlend Jørgensen,kej83@pm.me,Printer,asdfasdf

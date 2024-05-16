@@ -59,6 +59,9 @@
         </select>
         <input type="submit" value="Marker som ferdig">
     </form>
+    <% if (locals.success) { %>
+        <p>Saken ble markert som løst</p>
+   <% } %>
         <% } %>
     <!-- 2. Skjema her, avslutt med submit knapp
     3. På server side: Man kommer hit ved å skrive localhost:3000/admin .
